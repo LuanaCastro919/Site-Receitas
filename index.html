@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Na Cozinha com a Lua</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Pacifico&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: #fffaf5;
+      color: #333;
+    }
+
+    header {
+      background: #e8735a;
+      padding: 1.2rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header h1 {
+      font-family: 'Pacifico', cursive;
+      color: #fff;
+      font-size: 1.6rem;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 1.2rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    nav a:hover { text-decoration: underline; }
+
+    .banner {
+      background: #fce9e4;
+      text-align: center;
+      padding: 3.5rem 1.5rem;
+      border-bottom: 3px solid #e8735a;
+    }
+
+    .banner p.emoji { font-size: 3rem; margin-bottom: 0.8rem; }
+
+    .banner h2 {
+      font-family: 'Pacifico', cursive;
+      font-size: 2rem;
+      color: #c0552a;
+      margin-bottom: 0.8rem;
+    }
+
+    .banner p.descricao {
+      color: #666;
+      font-size: 1rem;
+      max-width: 500px;
+      margin: 0 auto 1.6rem;
+      line-height: 1.6;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #e8735a;
+      color: #fff;
+      padding: 0.7rem 1.8rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: background 0.2s;
+    }
+    .btn:hover { background: #c0552a; }
+
+    .secao {
+      padding: 3rem 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .secao h2 {
+      font-family: 'Pacifico', cursive;
+      color: #c0552a;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      border: 2px solid #f0ddd7;
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
+    .card:hover { transform: translateY(-4px); }
+
+    .card img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-corpo {
+      padding: 1.1rem;
+    }
+
+    .card-corpo h3 {
+      font-size: 1.05rem;
+      color: #333;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-corpo p {
+      font-size: 0.88rem;
+      color: #777;
+      line-height: 1.55;
+      margin-bottom: 0.7rem;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #fce9e4;
+      color: #e8735a;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.2rem 0.7rem;
+      border-radius: 20px;
+    }
+
+    hr {
+      border: none;
+      border-top: 2px dashed #f0ddd7;
+      margin: 0 2rem;
+    }
+
+    .secao-contato {
+      padding: 3rem 2rem 4rem;
+      max-width: 540px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .secao-contato h2 {
+      font-family: 'Pacifico', cursive;
+      color: #c0552a;
+      font-size: 1.5rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .secao-contato p {
+      color: #777;
+      font-size: 0.95rem;
+      margin-bottom: 1.6rem;
+      line-height: 1.6;
+    }
+
+    .formulario {
+      background: #fff;
+      border: 2px solid #f0ddd7;
+      border-radius: 14px;
+      padding: 2rem;
+      text-align: left;
+    }
+
+    .campo { margin-bottom: 1rem; }
+
+    .campo label {
+      display: block;
+      font-weight: 700;
+      font-size: 0.88rem;
+      margin-bottom: 0.4rem;
+      color: #444;
+    }
+
+    .campo input,
+    .campo textarea,
+    .campo select {
+      width: 100%;
+      padding: 0.65rem 0.9rem;
+      border: 1.5px solid #e0d0ca;
+      border-radius: 8px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.95rem;
+      background: #fffaf5;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .campo input:focus,
+    .campo textarea:focus,
+    .campo select:focus { border-color: #e8735a; }
+    .campo textarea { resize: vertical; min-height: 100px; }
+
+    .btn-wpp {
+      width: 100%;
+      padding: 0.85rem;
+      background: #25D366;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: background 0.2s;
+      margin-top: 0.4rem;
+    }
+    .btn-wpp:hover { background: #1aab52; }
+
+    .aviso {
+      display: none;
+      margin-top: 0.8rem;
+      background: #eafaf1;
+      border: 1px solid #25D366;
+      border-radius: 8px;
+      padding: 0.7rem 1rem;
+      font-size: 0.9rem;
+      color: #1a7a45;
+      text-align: center;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #e8735a;
+      color: #fff;
+      text-align: center;
+      padding: 1.2rem;
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 600px) {
+      header { flex-direction: column; gap: 0.6rem; text-align: center; }
+      nav a { margin: 0 0.5rem; }
+      .banner h2 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🍳 Na Cozinha com a Lua</h1>
+  <nav>
+    <a href="#receitas">Receitas</a>
+    <a href="#contato">Contato</a>
+  </nav>
+</header>
+
+<div class="banner">
+  <p class="emoji">👩‍🍳</p>
+  <h2>Olá, eu sou a Lua!</h2>
+  <p class="descricao">Universitária do primeiro período tentando sobreviver com pouco dinheiro e muita fome. Aqui compartilhei algumas receitas que gosto de fazer no meu dia a dia</p>
+  <a href="#receitas" class="btn">Ver receitas 🍽️</a> 
+</div>
+
+<section class="secao" id="receitas">
+  <h2>Minhas receitas favoritas</h2>
+  <div class="grid">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1551183053-bf91798d792e?w=500&q=80" alt="Macarrão" />
+      <div class="card-corpo">
+        <h3>Macarrão ao alho e óleo</h3>
+        <p>Rápido, barato e gostoso. Com alho bem douradinho e um pouco de óleo fica difícil errar.</p>
+        <span class="tag">⏱ 15 min</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&q=80" alt="Omelete" />
+      <div class="card-corpo">
+        <h3>Omelete recheada</h3>
+        <p>Ovos, queijo e o que tiver na geladeira. Pronta em 10 minutos e resolve qualquer fome.</p>
+        <span class="tag">⏱ 10 min</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=500&q=80" alt="Panqueca" />
+      <div class="card-corpo">
+        <h3>Panqueca de banana</h3>
+        <p>Só precisa de banana, ovo e um pouquinho de aveia. Maravilhosa pro café da manhã.</p>
+        <span class="tag">⏱ 12 min</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr />
+
+<section class="secao-contato" id="contato">
+  <h2>Fale comigo! </h2>
+  <p>Tem alguma dúvida, sugestão de receita ou só quer trocar ideia? Manda mensagem no WhatsApp!</p>
+
+  <div class="formulario">
+    <div class="campo">
+      <label for="nome">Seu nome</label>
+      <input type="text" id="nome" placeholder="Como você se chama?" />
+    </div>
+
+    <div class="campo">
+      <label for="mensagem">Mensagem</label>
+      <textarea id="mensagem" placeholder="Escreve aqui..."></textarea>
+    </div>
+
+    <button class="btn-wpp" onclick="enviarWhatsApp()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+    </button>
+
+    <div class="aviso" id="aviso">✅ Redirecionando para o WhatsApp...</div>
+  </div>
+</section>
+
+<footer>
+  <p>Feito com carinho por Lua · 2026</p>
+</footer>
+
+<script>
+  const MEU_NUMERO = "5581985011902";
+
+  function enviarWhatsApp() {
+    const nome     = document.getElementById("nome").value.trim();
+    const mensagem = document.getElementById("mensagem").value.trim();
+
+    if (!nome)     { alert("Coloque seu nome aí!"); return; }
+    if (!mensagem) { alert("Escreve sua mensagem!"); return; }
+
+    const texto = `Oi Lua! Sou *${nome}* e vi seu site de culinária \n\n${mensagem}`;
+
+    document.getElementById("aviso").style.display = "block";
+
+    setTimeout(() => {
+      window.open(`https://wa.me/${MEU_NUMERO}?text=${encodeURIComponent(texto)}`, "_blank");
+    }, 600);
+  }
+</script>
+
+</body>
+</html>
