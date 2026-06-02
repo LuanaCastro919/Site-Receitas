@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Receitas | Na Cozinha com a Lua</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Pacifico&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header>
+  <h1><a href="index.html"> Na Cozinha com a Lua</a></h1>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="receitas.html" class="ativo">Receitas</a>
+    <a href="ingredientes.html">Ingredientes</a>
+    <a href="dicas.html">Dicas</a>
+    <a href="contato.html">Contato</a>
+  </nav>
+</header>
+
+<div class="container">
+
+  <div class="breadcrumb">
+    <a href="index.html">Início</a> › Receitas
+  </div>
+
+  <h2 class="titulo-secao"> Receitas</h2>
+  <div class="linha-laranja"></div>
+
+  <p style="color:#666; margin-bottom:1.5rem; line-height:1.65;">
+    Aqui ficam as receitas que faço com mais frequência. A maioria é rápida, barata e não exige muita habilidade — perfeito pra quem tá aprendendo a cozinhar ou não tem tempo a perder.
+  </p>
+
+  <div class="destaque">
+    <strong>Ir direto para:</strong>
+    <a href="#cafe" style="color:#c0552a; margin: 0 0.5rem;"> Café da manhã</a> |
+    <a href="#almoco" style="color:#c0552a; margin: 0 0.5rem;"> Almoço e jantar</a> |
+    <a href="#sobremesa" style="color:#c0552a; margin: 0 0.5rem;"> Sobremesas</a>
+  </div>
+
+  <h3 style="color:#c0552a; margin-bottom:0.8rem; margin-top:1.5rem;">Tabela de receitas</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Receita</th>
+        <th>Tempo</th>
+        <th>Dificuldade</th>
+        <th>Custo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Panqueca de banana</td>
+        <td>12 min</td>
+        <td>Fácil</td>
+        <td>Baixo</td>
+      </tr>
+      <tr>
+        <td>Omelete recheada</td>
+        <td>10 min</td>
+        <td>Fácil</td>
+        <td>Baixo</td>
+      </tr>
+      <tr>
+        <td>Macarrão ao alho e óleo</td>
+        <td>20 min</td>
+        <td>Fácil</td>
+        <td>Baixo</td>
+      </tr>
+      <tr>
+        <td>Arroz de forno</td>
+        <td>40 min</td>
+        <td>Médio</td>
+        <td>Médio</td>
+      </tr>
+      <tr>
+        <td>Brigadeiro de colher</td>
+        <td>20 min</td>
+        <td>Fácil</td>
+        <td>Baixo</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 id="cafe" style="color:#c0552a; margin: 2rem 0 1rem;"> Café da manhã</h3>
+
+  <div class="grid-cards">
+
+    <a href="receita-panqueca.html" class="card">
+      <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=500&q=80" alt="Panqueca" />
+      <div class="card-corpo">
+        <h3>Panqueca de banana</h3>
+        <p>Só banana, ovo e aveia. Pronta em 12 minutos e sem culpa nenhuma.</p>
+        <span class="tag"> 12 min</span>
+        <span class="tag tag-verde">Fácil</span>
+      </div>
+    </a>
+
+    <a href="receita-panqueca.html" class="card">
+      <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&q=80" alt="Omelete" />
+      <div class="card-corpo">
+        <h3>Omelete recheada</h3>
+        <p>Ovos, queijo e o que tiver na geladeira. Pronto em 10 minutos.</p>
+        <span class="tag"> 10 min</span>
+        <span class="tag tag-verde">Fácil</span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- ALMOÇO E JANTAR -->
+  <h3 id="almoco" style="color:#c0552a; margin: 2rem 0 1rem;"> Almoço e jantar</h3>
+
+  <div class="grid-cards">
+
+    <a href="receita-panqueca.html" class="card">
+      <img src="https://images.unsplash.com/photo-1551183053-bf91798d792e?w=500&q=80" alt="Macarrão" />
+      <div class="card-corpo">
+        <h3>Macarrão ao alho e óleo</h3>
+        <p>Clássico que não falha. Com alho bem douradinho e um fio de azeite.</p>
+        <span class="tag">⏱ 20 min</span>
+        <span class="tag tag-verde">Fácil</span>
+      </div>
+    </a>
+
+    <a href="receita-panqueca.html" class="card">
+      <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=500&q=80" alt="Arroz de forno" />
+      <div class="card-corpo">
+        <h3>Arroz de forno</h3>
+        <p>Ótimo pra reaproveitar arroz que sobrou. Com frango, milho e catupiry.</p>
+        <span class="tag"> 40 min</span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- SOBREMESAS -->
+  <h3 id="sobremesa" style="color:#c0552a; margin: 2rem 0 1rem;"> Sobremesas</h3>
+
+  <div class="grid-cards">
+
+    <a href="receita-panqueca.html" class="card">
+      <img src="https://images.unsplash.com/photo-1624300629298-e9de39c13be5?w=500&q=80" alt="Brigadeiro" />
+      <div class="card-corpo">
+        <h3>Brigadeiro de colher</h3>
+        <p>Cremoso, sem enrolar e pronto em 20 minutos. Irresistível.</p>
+        <span class="tag"> 20 min</span>
+        <span class="tag tag-verde">Fácil</span>
+      </div>
+    </a>
+
+  </div>
+
+  <br>
+  <a href="receita-panqueca.html" class="btn">Ver receita completa com modo de preparo →</a>
+
+</div>
+
+<footer>
+  <p>Feito com carinho por Lua  · 2026 · <a href="contato.html">Fale comigo</a></p>
+</footer>
+
+</body>
+</html>
